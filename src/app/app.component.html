@@ -12,3 +12,11 @@
     <button class="btn btn-info" (click)="decrease()">Decrease</button>
   </div>
 </div>
+
+<hr>
+
+<div class="row text-center">
+  <div class="col">
+    <app-child [counter]="counter" (changeCounter)="counter = $event"></app-child>
+  </div>
+</div>
