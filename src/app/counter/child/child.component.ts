@@ -32,9 +32,9 @@ export class ChildComponent implements OnInit {
     this.store.dispatch(action);
   }
 
-  resetGrandchild($event) {
-    this.counter = $event;
-    // this.changeCounter.emit($event);
-  }
+  // resetGrandchild($event) {
+  //   this.counter = $event;
+  //   // this.changeCounter.emit($event);
+  // }
 
 }
