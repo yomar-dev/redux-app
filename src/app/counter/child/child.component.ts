@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { AppState } from '../../app.reducers';
 
 @Component({
   selector: 'app-child',
@@ -7,27 +10,30 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  @Input() counter: number;
-  @Output() changeCounter = new EventEmitter<number>();
+  counter: number;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.store.select('counter').subscribe(counter => {
+      this.counter = counter;
+      console.log('Counter: ', counter);
+    });
   }
 
   multiply() {
     this.counter *= 2;
-    this.changeCounter.emit(this.counter);
+    // this.changeCounter.emit(this.counter);
   }
 
   divide() {
     this.counter /= 2;
-    this.changeCounter.emit(this.counter);
+    // this.changeCounter.emit(this.counter);
   }
 
   resetGrandchild($event) {
     this.counter = $event;
-    this.changeCounter.emit($event);
+    // this.changeCounter.emit($event);
   }
 
 }
