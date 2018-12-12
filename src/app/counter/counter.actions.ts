@@ -2,6 +2,8 @@ import { Action } from '@ngrx/store';
 
 export const INCREMENT = '[Counter] Increment';
 export const DECREMENT = '[Counter] Decrement';
+export const MULTIPLY = '[Counter] Multiply';
+export const DIVIDE = '[Counter] Divide';
 
 
 export class IncrementAction implements Action {
@@ -11,3 +13,17 @@ export class IncrementAction implements Action {
 export class DecrementAction implements Action {
     readonly type = DECREMENT;
 }
+
+export class MultiplyAction implements Action {
+    readonly type = MULTIPLY;
+
+    constructor(public payload: number) {}
+}
+
+export class DivideAction implements Action {
+    readonly type = DIVIDE;
+
+    constructor(public payload: number) {}
+}
+
+export type Actions = IncrementAction | DecrementAction | MultiplyAction | DivideAction;
