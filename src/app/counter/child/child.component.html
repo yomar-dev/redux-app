@@ -9,3 +9,11 @@
     <button class="btn btn-info" (click)="divide()">Divide</button>
   </div>
 </div>
+
+<hr>
+
+<div class="row">
+  <div class="col">
+    <app-grandchild [counter]="counter" (resetCounter)="resetGrandchild($event)"></app-grandchild>
+  </div>
+</div>
